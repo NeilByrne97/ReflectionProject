@@ -37,12 +37,6 @@ public class CustomerFactory {
 	}
 	
 	public ObservableList<Customer> getCustomers() {
-		/* This is the model that the ListView will use. The factory method
-		 * observableArrayList() creates an ObservableList that automatically 
-		 * observed by the ListView. Any changes that occur inside the 
-		 * ObservableList will be automatically shown in the ListView. The
-		 * interface ObservableList extends java.util.List
-		 */
 		return model;
 	}
 	
