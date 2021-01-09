@@ -16,13 +16,14 @@ public class ReadJarFile{
 	 * @return list ie: ClassList
 	 * @throws IOException
 	 * @throws NoSuchMethodException
+	 * @author neilb
 	 */
 	
-	List<Class> classList = new ArrayList<Class>();
+	private static ClassList classList;
 	
-	public List<Class> getJarContents(String jarName) throws IOException, NoSuchMethodException {
-		
-		//Create JarInputStream for jar file
+	public ClassList getJarContents(String jarName) throws IOException, NoSuchMethodException {
+				
+				classList = new ClassList();
 				JarInputStream in = new JarInputStream(new FileInputStream(jarName));
 				JarEntry next = in.getNextJarEntry();//Assign JarEntry to next
 				
@@ -37,7 +38,8 @@ public class ReadJarFile{
 						try {
 							cls = Class.forName(name);
 							classList.add(cls);
-							System.out.println("The class is " + cls);
+							//System.out.println("The class is " + cls);
+							System.out.println(cls.getMethods());
 						} 
 						catch (ClassNotFoundException e) {
 							System.out.println("Couldn't find class : " + name);
